@@ -62,14 +62,19 @@ button {
     color: #dad60b;
     display: none;
 }
-.text-wrong {
+#text-wrong {
     color: red;
     display: none;
 }
-#low, #high {
+#high {
     display: none;
+    color: green;
 }
-.text-right {
+#low{
+    display: none;
+    color: red;
+}
+#text-right {
     color: green;
     display: none;
 }
