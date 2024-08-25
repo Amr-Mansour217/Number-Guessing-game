@@ -8,26 +8,24 @@
 </head>
 <body>
     
-    <div class="container">
+    <div id="container" class="container">
         <h1>Guess A Number!</h1>
         <h2>Guess a number between 1 - 100</h2>
         <div class="inputs-text">
-            <div class="inputs">
-                <input id="input" type="number" min="1" max="100" required>
+            <div  class="inputs">
+                <input id="inputs-text" id="input" type="number" min="1" max="100" required>
                 <button id="calculateBtn">Guess</button>
             </div>
-            <div class="wrong-number">
-                <p>Enter a valid number</p>
-            </div>
-            <div class="text-wrong">
-                <p id="low">Too low,</p>
-                <p id="high">Too high,</p>
-                <p>Stupid! Try again... </p>
-            </div>
-            <div class="text-right">
-                <p>CORRECT! The answer is </p>
-                <p id="attempts"></p>
-            </div>
+            <br>
+            <p class="low" id="low" >too low...</p>
+            <p class="high" id="high" >too high...</p>
+            <br>
+            <span id="text-wrong" >
+                <p>wrong answer</p>
+            </span>
+            <span id="text-right" >
+                <p id="text-right" >correct your answer is</p>
+            </span>
         </div>
     </div>
 

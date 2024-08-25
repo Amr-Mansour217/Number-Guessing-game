@@ -1,43 +1,36 @@
-let input = document.querySelector('#input');
-let calculateBtn = document.querySelector('#calculateBtn');
-let wrongNumber = document.querySelector('.wrong-number');
-let textWrong = document.querySelector('.text-wrong');
-let low =  document.querySelector('#low')
-let high =  document.querySelector('#high');
-let textRight = document.querySelector('.text-right');
-let attemptsElement = document.querySelector('#attempts');
-
-let minimum = 1;
-let maximum = 100;
-let answer = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
-
+let container = document.getElementById("container")
+let input = document.getElementById("inputs-text");
+let calcBtn = document.getElementById("calculateBtn");
+let wrongNumber = document.getElementById("wrong-number");
+let lowAnswer = document.getElementById("low");
+let highAnswer = document.getElementById("high");
+let wrongText = document.getElementById("text-wrong");
+let rightText = document.getElementById("text-right");
+let attemptsEl = document.getElementById("attempts");
+let min = 1;
+let max = 100;
+let answer = Math.floor (Math.random()*(max - min+1)) + min ;
+rightText.innerHTML = `CORRECT! The answer is ${answer}`;
+highAnswer.innerHTML = "too high"
+console.log(answer)
 let attempts = 0;
-let guess;
+let guess ;
 let running = true;
-
-let numberGuess = function() {
-    calculateBtn.addEventListener('click', function() {
-        while (running) {
-            guess = input.value;
-            guess = Number(guess);
-            
-            if (isNaN(guess)) {
-                wrongNumber.style.display = 'block';
-            } else if (guess < minimum || guess > maximum) {
-                wrongNumber.style.display = 'block';
-            } else {
-                attempts++;
-                if (guess < answer) {
-                    `${low.style.display = 'block'}` + `${textWrong.style.display = 'block'}`;
-                } else if (guess > answer) {
-                    `${high.style.display = 'block'}` + `${textWrong.style.display = 'block'}`;
-                } else {
-                    `${textRight.style.display = 'block'}` + `The correct number is ${answer}. It took you ${attempts} attempts`;
-                    // attemptsElement.textContent = attempts;
-                    running = false;
-                }
+calcBtn.addEventListener("click",function guessing(){
+    while(running){
+        guess = input.value;
+        if(guess > answer){
+            highAnswer.style.display = "inline-block"
+        }if (guess < answer){
+            if(highAnswer.style.display = "inline-block"){
+                highAnswer.style.display = "none"
+            }else{
+                lowAnswer.style.display = "inline-block"
             }
         }
-    });
-};
-numberGuess();
+         if(guess == answer){
+            `${rightText.style.display = "block"}`;
+        }
+        running = false;
+    }
+});
